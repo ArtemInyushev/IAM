@@ -29,7 +29,7 @@ namespace IAM.Infrastructure.Data
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer("Server=tcp:iam-sql-server.database.windows.net,1433;Initial Catalog=iam-db;Persist Security Info=False;User ID=server-admin-diploma;Password=Artem_Study;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
+                optionsBuilder.UseSqlServer("Data Source=.\\SQLEXPRESS;Initial Catalog=iam-db;Integrated Security=True;TrustServerCertificate=True;");
             }            
         }
 
