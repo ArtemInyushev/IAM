@@ -11,7 +11,6 @@ namespace IAM.Infrastructure.Data.EntityConfigurations
             builder.Property(p => p.Initiator).HasMaxLength(100);
             builder.Property(p => p.Code).HasMaxLength(100);
             builder.Property(p => p.Description).HasMaxLength(300);
-            builder.Property(p => p.IsInherited).HasDefaultValue(true);
 
             builder.HasOne(p => p.Department)
                 .WithMany()
@@ -19,7 +18,7 @@ namespace IAM.Infrastructure.Data.EntityConfigurations
                 .OnDelete(DeleteBehavior.Restrict);
 
             builder.HasOne(p => p.Staffing)
-               .WithMany()
+               .WithMany(p => p.EntRoles)
                .HasForeignKey(i => i.StaffingId)
                .OnDelete(DeleteBehavior.Restrict);
 

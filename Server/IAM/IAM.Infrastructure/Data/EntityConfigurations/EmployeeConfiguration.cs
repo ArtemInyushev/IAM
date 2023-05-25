@@ -16,7 +16,7 @@ namespace IAM.Infrastructure.Data.EntityConfigurations
                 .OnDelete(DeleteBehavior.NoAction);
 
             builder.HasOne(p => p.Staffing)
-                .WithMany()
+                .WithMany(p => p.Employees)
                 .HasForeignKey(i => i.StaffingId)
                 .OnDelete(DeleteBehavior.NoAction);
 

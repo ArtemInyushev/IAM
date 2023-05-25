@@ -1,18 +1,19 @@
 ﻿using IAM.Core.Models;
 using IAM.Infrastructure.Data.EntityConfigurations;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
 
 namespace IAM.Infrastructure.Data
 {
+    // Create migration
+    // dotnet ef migrations add MigrationName --project IAM.Infrastructure
+    // Update database
+    // dotnet ef database update --project IAM.Infrastructure
+    // Remove migration
+    // dotnet ef migrations remove --project IAM.Infrastructure
     public class IamDbContext : DbContext
     {
-        private readonly IConfiguration _configuration;
         public IamDbContext() : base() { }
-        public IamDbContext(DbContextOptions<IamDbContext> options, IConfiguration configuration) 
-        {
-            _configuration = configuration;
-        }
+        public IamDbContext(DbContextOptions<IamDbContext> options) :base(options) { }
 
         public virtual DbSet<Department> Departments { get; set; }
         public virtual DbSet<Employee> Employees { get; set; }
@@ -28,7 +29,7 @@ namespace IAM.Infrastructure.Data
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer("Data Source=.\\\\SQLEXPRESS;Initial Catalog=iam-db;Trusted_Connection=True");
+                optionsBuilder.UseSqlServer("Data Source=.\\SQLEXPRESS;Initial Catalog=iam-db;Integrated Security=True;TrustServerCertificate=True;");
             }            
         }
 
