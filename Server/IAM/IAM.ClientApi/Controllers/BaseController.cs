@@ -10,7 +10,7 @@ namespace IAM.ClientApi.Controllers
     {
         protected readonly ILogger<T> _logger;
 
-        public BaseController(ILogger<T> logger)
+        protected BaseController(ILogger<T> logger)
         {
             _logger = logger;
         }
