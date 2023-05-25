@@ -7,12 +7,6 @@ namespace IAM.Infrastructure.Data
 {
     public class IamDbContext : DbContext
     {
-        private readonly IConfiguration _configuration;
-        public IamDbContext(IConfiguration configuration)
-        {
-            _configuration = configuration;
-        }
-
         public virtual DbSet<Department> Departments { get; set; }
         public virtual DbSet<Employee> Employees { get; set; }
         public virtual DbSet<EmployeeHasDeltaRole> EmployeeHasDeltaRoles { get; set; }
@@ -27,7 +21,7 @@ namespace IAM.Infrastructure.Data
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer(_configuration.GetConnectionString("IAMConnectionString"));
+                optionsBuilder.UseSqlServer("Data Source=.\\\\SQLEXPRESS;Initial Catalog=iam-db;Trusted_Connection=True");
             }            
         }
 

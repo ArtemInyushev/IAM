@@ -1,6 +1,6 @@
 ﻿namespace IAM.Core.Models
 {
-    public class EntRole
+    public class EntRole : BaseEntity
     {
         public long DepartmentId { get; set; }
         public virtual Department Department { get; set; }

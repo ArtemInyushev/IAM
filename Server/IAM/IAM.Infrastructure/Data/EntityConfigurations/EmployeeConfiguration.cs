@@ -12,11 +12,13 @@ namespace IAM.Infrastructure.Data.EntityConfigurations
 
             builder.HasOne(p => p.Personal)
                 .WithMany()
-                .HasForeignKey(i => i.PersonalId);
+                .HasForeignKey(i => i.PersonalId)
+                .OnDelete(DeleteBehavior.NoAction);
 
             builder.HasOne(p => p.Staffing)
                 .WithMany()
-                .HasForeignKey(i => i.StaffingId);
+                .HasForeignKey(i => i.StaffingId)
+                .OnDelete(DeleteBehavior.NoAction);
 
             builder.HasMany(p => p.EmployeeHasDeltaRoles)
                 .WithOne(p => p.Employee)
