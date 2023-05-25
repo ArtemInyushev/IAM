@@ -1,4 +1,7 @@
+using IAM.ClientApi.Middlewares;
+using IAM.Core.Interfaces;
 using IAM.Infrastructure.Data;
+using IAM.Infrastructure.Repositories;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -7,8 +10,10 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddDbContext<IamDbContext>(options =>
 {
-    options.UseSqlServer(builder.Configuration.GetConnectionString("iam-db"));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("IAMConnectionString"));
 });
+
+builder.Services.AddScoped(typeof(IRepository<>), typeof(IamRepository<>));
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -22,6 +27,8 @@ if (app.Environment.IsDevelopment()) {
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseMiddleware<ErrorHandlingMiddleware>();
 
 app.UseHttpsRedirection();
 
