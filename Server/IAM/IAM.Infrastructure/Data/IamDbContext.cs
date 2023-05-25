@@ -7,6 +7,13 @@ namespace IAM.Infrastructure.Data
 {
     public class IamDbContext : DbContext
     {
+        private readonly IConfiguration _configuration;
+        public IamDbContext() : base() { }
+        public IamDbContext(DbContextOptions<IamDbContext> options, IConfiguration configuration) 
+        {
+            _configuration = configuration;
+        }
+
         public virtual DbSet<Department> Departments { get; set; }
         public virtual DbSet<Employee> Employees { get; set; }
         public virtual DbSet<EmployeeHasDeltaRole> EmployeeHasDeltaRoles { get; set; }
