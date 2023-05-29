@@ -8,6 +8,7 @@ namespace IAM.Infrastructure.Data.EntityConfigurations
     {
         public void Configure(EntityTypeBuilder<Department> builder)
         {
+            builder.Property(p => p.DepartmentCode).HasMaxLength(50);
             builder.Property(p => p.FullName).HasMaxLength(250);
 
             builder.HasOne(p => p.ParentDepartment)
