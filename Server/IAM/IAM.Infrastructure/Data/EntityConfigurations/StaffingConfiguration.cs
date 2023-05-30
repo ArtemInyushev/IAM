@@ -8,8 +8,9 @@ namespace IAM.Infrastructure.Data.EntityConfigurations
     {
         public void Configure(EntityTypeBuilder<Staffing> builder)
         {
-            builder.Property(p => p.StaffingCode).HasMaxLength(50);
             builder.Property(p => p.ProfessionName).HasMaxLength(50);
+
+            builder.HasIndex(p => p.StaffingCode).IsUnique();
 
             builder.HasOne(p => p.Department)
                 .WithMany()

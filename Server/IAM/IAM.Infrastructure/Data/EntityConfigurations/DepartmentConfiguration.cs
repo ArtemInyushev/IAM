@@ -10,6 +10,8 @@ namespace IAM.Infrastructure.Data.EntityConfigurations
         {
             builder.Property(p => p.FullName).HasMaxLength(250);
 
+            builder.HasIndex(p => p.DepartmentCode).IsUnique();
+
             builder.HasOne(p => p.ParentDepartment)
                 .WithMany()
                 .HasForeignKey(i => i.ParentId)
