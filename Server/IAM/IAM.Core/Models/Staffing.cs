@@ -6,7 +6,7 @@
         public virtual Department Department { get; set; }
         public virtual ICollection<Employee> Employees { get; set; }
         public virtual ICollection<EntRole> EntRoles { get; set; }
-        public string StaffingCode { get; set; }
+        public int StaffingCode { get; set; }
         public string ProfessionName { get; set; }
 
         public Staffing()
