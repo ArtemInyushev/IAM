@@ -2,7 +2,12 @@
   "IsEncrypted": false,
   "Values": {
     "AzureWebJobsStorage": "UseDevelopmentStorage=true",
-    "FUNCTIONS_WORKER_RUNTIME": "dotnet"
+    "FUNCTIONS_WORKER_RUNTIME": "dotnet-isolated"
+  },
+  "AzureAd": {
+    "TenantId": "effeacdb-9852-479a-b9f4-d71ee8eb64d4",
+    "ClientId": "ac7b3e73-1a8e-46c3-acab-64517385d24b",
+    "ClientSecret": "{client_secret_value}"
   },
   "ConnectionStrings": {
     "IAMConnectionString": "Data Source=.\\SQLEXPRESS;Initial Catalog=iam-db;Integrated Security=True;TrustServerCertificate=True;"

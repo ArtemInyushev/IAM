@@ -33,7 +33,6 @@ if (app.Environment.IsDevelopment()) {
     app.UseSwaggerUI();
 }
 
-
 // Fill database with test data
 using (var scope = app.Services.CreateScope())
 {

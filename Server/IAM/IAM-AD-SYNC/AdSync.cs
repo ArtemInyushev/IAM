@@ -1,24 +1,33 @@
-using System;
-using System.Threading.Tasks;
+using System.Net;
 using IAM.Application.Interfaces;
-using Microsoft.Azure.WebJobs;
+using Microsoft.Azure.Functions.Worker;
+using Microsoft.Azure.Functions.Worker.Http;
 using Microsoft.Extensions.Logging;
 
 namespace IAM_AD_SYNC
 {
     public class AdSync
     {
+        private readonly ILogger<AdSync> _logger;
         private readonly IAdSyncService _adSyncService;
 
-        public AdSync(IAdSyncService adSyncService)
+        public AdSync(IAdSyncService adSyncService, ILoggerFactory loggerFactory)
         {
             _adSyncService = adSyncService;
+            _logger = loggerFactory.CreateLogger<AdSync>();
         }
 
-        [FunctionName("AdSync")]
-        public async Task Run([TimerTrigger("0 */1 * * * *")]TimerInfo myTimer, ILogger log)
+        [Function("AdSync")]
+        public HttpResponseData Run([HttpTrigger(AuthorizationLevel.Function, "get", "post")] HttpRequestData req)
         {
-            log.LogInformation($"C# Timer trigger function executed at: {DateTime.Now}");
+            _logger.LogInformation("C# HTTP trigger function processed a request.");
+
+            var response = req.CreateResponse(HttpStatusCode.OK);
+            response.Headers.Add("Content-Type", "text/plain; charset=utf-8");
+
+            response.WriteString("Welcome to Azure Functions!");
+
+            return response;
         }
     }
 }
