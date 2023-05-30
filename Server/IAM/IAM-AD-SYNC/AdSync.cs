@@ -1,5 +1,6 @@
 using System;
 using Microsoft.Azure.WebJobs;
+using Microsoft.Azure.WebJobs.Host;
 using Microsoft.Extensions.Logging;
 
 namespace IAM_AD_SYNC
@@ -7,7 +8,7 @@ namespace IAM_AD_SYNC
     public class Function1
     {
         [FunctionName("Function1")]
-        public void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, ILogger log)
+        public void Run([TimerTrigger("0 */1 * * * *")]TimerInfo myTimer, ILogger log)
         {
             log.LogInformation($"C# Timer trigger function executed at: {DateTime.Now}");
         }

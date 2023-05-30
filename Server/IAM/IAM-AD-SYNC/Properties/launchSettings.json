@@ -2,7 +2,7 @@
   "profiles": {
     "IAM_AD_SYNC": {
       "commandName": "Project",
-      "commandLineArgs": "--port 7079",
+      "commandLineArgs": "--port 7108",
       "launchBrowser": false
     }
   }

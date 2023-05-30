@@ -13,7 +13,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IAM.Infrastructure", "IAM.I
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Functions", "Functions", "{6BEC76B9-FD05-4DBE-99C7-06E071E1FA99}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IAM-AD-SYNC", "IAM-AD-SYNC\IAM-AD-SYNC.csproj", "{19417EA2-9C1B-498C-A431-CB71DF1D821C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IAM-AD-SYNC", "IAM-AD-SYNC\IAM-AD-SYNC.csproj", "{61B6BAA7-CB05-4763-BA3C-44897F6C6E7D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -37,16 +37,16 @@ Global
 		{5D18E61E-6283-4A58-B9EC-728F349FFD41}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5D18E61E-6283-4A58-B9EC-728F349FFD41}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5D18E61E-6283-4A58-B9EC-728F349FFD41}.Release|Any CPU.Build.0 = Release|Any CPU
-		{19417EA2-9C1B-498C-A431-CB71DF1D821C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{19417EA2-9C1B-498C-A431-CB71DF1D821C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{19417EA2-9C1B-498C-A431-CB71DF1D821C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{19417EA2-9C1B-498C-A431-CB71DF1D821C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{61B6BAA7-CB05-4763-BA3C-44897F6C6E7D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{61B6BAA7-CB05-4763-BA3C-44897F6C6E7D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{61B6BAA7-CB05-4763-BA3C-44897F6C6E7D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{61B6BAA7-CB05-4763-BA3C-44897F6C6E7D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{19417EA2-9C1B-498C-A431-CB71DF1D821C} = {6BEC76B9-FD05-4DBE-99C7-06E071E1FA99}
+		{61B6BAA7-CB05-4763-BA3C-44897F6C6E7D} = {6BEC76B9-FD05-4DBE-99C7-06E071E1FA99}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6829A1B5-2039-4F09-BCD8-90C35459A5CE}
