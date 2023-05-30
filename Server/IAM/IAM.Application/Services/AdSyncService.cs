@@ -6,12 +6,12 @@ namespace IAM.Application.Services
     {
         public async Task SyncEmployees()
         {
-            throw new NotImplementedException();
+
         }
 
         public async Task SyncGroups()
         {
-            throw new NotImplementedException();
+
         }
     }
 }

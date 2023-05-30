@@ -1,14 +1,22 @@
 using System;
+using System.Threading.Tasks;
+using IAM.Application.Interfaces;
 using Microsoft.Azure.WebJobs;
-using Microsoft.Azure.WebJobs.Host;
 using Microsoft.Extensions.Logging;
 
 namespace IAM_AD_SYNC
 {
-    public class Function1
+    public class AdSync
     {
-        [FunctionName("Function1")]
-        public void Run([TimerTrigger("0 */1 * * * *")]TimerInfo myTimer, ILogger log)
+        private readonly IAdSyncService _adSyncService;
+
+        public AdSync(IAdSyncService adSyncService)
+        {
+            _adSyncService = adSyncService;
+        }
+
+        [FunctionName("AdSync")]
+        public async Task Run([TimerTrigger("0 */1 * * * *")]TimerInfo myTimer, ILogger log)
         {
             log.LogInformation($"C# Timer trigger function executed at: {DateTime.Now}");
         }
