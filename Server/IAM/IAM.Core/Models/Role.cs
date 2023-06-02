@@ -9,7 +9,7 @@ namespace IAM.Core.Models
         public Guid ExternaId { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
-        public TypeRole Type { get; set; }
+        public RoleType Type { get; set; }
 
         public Role()
         {

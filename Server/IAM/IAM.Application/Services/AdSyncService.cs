@@ -87,7 +87,7 @@ namespace IAM.Application.Services
             });
             var users = userCollection.Value;
 
-            var employees = await _employeesRepository.ListAsync(new EmployeesIncludeAllSpec());
+            var employees = await _employeesRepository.ListAsync(new EmployeesIncludeAllSpec(RoleType.AD, IsActive.All));
             var staffings = await _staffingsRepository.ListAsync();
             var roles = await _rolesRepository.ListAsync();
 
@@ -126,8 +126,10 @@ namespace IAM.Application.Services
                 else // Case 2: update user data and his groups if needed
                 {
                     // Update user data
+                    var updatedEmployee = _mapper.Map<Employee>(user);
                     var updatedPersonal = _mapper.Map<Personal>(user);
-                    employee.AccountName = user.MailNickname;
+                    employee.AccountName = updatedEmployee.AccountName;
+                    employee.IsActive = updatedEmployee.IsActive;
                     employee.Personal.FirstName = updatedPersonal.FirstName;
                     employee.Personal.LastName = updatedPersonal.LastName;
                     employee.Personal.DisplayName = updatedPersonal.DisplayName;
@@ -172,7 +174,16 @@ namespace IAM.Application.Services
                     {
                         if (!user.MemberOf.Any(m => m.Id == employeeHasRole.Role.ExternaId.ToString()))
                         {
-                            employeeHasRole.Status = RoleStatus.Deleted;
+                            switch (employeeHasRole.Status)
+                            {
+                                case RoleStatus.Active:
+                                case RoleStatus.ToDelete:
+                                    employeeHasRole.Status = RoleStatus.Deleted;
+                                    break;
+                                case RoleStatus.Deleted:
+                                case RoleStatus.ToCreate:
+                                    break;
+                            }
                         }
                     }
 
@@ -180,7 +191,7 @@ namespace IAM.Application.Services
                 }
             }
 
-            foreach (var employee in employees)
+            foreach (var employee in employees.Where(e => e.IsActive))
             {
                 // Case 1: remove extra users
                 if (!users.Any(u => u.EmployeeId == employee.EmployeeIdentifier.ToString()))
@@ -189,7 +200,7 @@ namespace IAM.Application.Services
                     employee.EmployeeHasEntRoles.Clear();
                     foreach (var employeeHasRole in employee.EmployeeHasRoles)
                     {
-                        employeeHasRole.Status = RoleStatus.ToDelete;
+                        employeeHasRole.Status = RoleStatus.Deleted;
                     }
                     employee.IsActive = false;
                 }
@@ -219,7 +230,7 @@ namespace IAM.Application.Services
                 if (!roles.Any(r => r.ExternaId.ToString() == group.Id))
                 {
                     var newRole = _mapper.Map<Role>(group);
-                    newRole.Type = TypeRole.AD;
+                    newRole.Type = RoleType.AD;
                     await _rolesRepository.AddAsync(newRole, false);
                 }
             }

@@ -1,6 +1,6 @@
 ﻿namespace IAM.Core.Enums
 {
-    public enum TypeRole
+    public enum RoleType
     {
         AD = 1,
         SAP = 2,
