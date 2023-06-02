@@ -9,7 +9,7 @@
         public virtual ICollection<EmployeeHasRole> EmployeeHasRoles { get; set; }
         public virtual ICollection<EmployeeHasDeltaRole> EmployeeHasDeltaRoles { get; set; }
         public virtual ICollection<EmployeeHasEntRole> EmployeeHasEntRoles { get; set; }
-        public Guid ExternaId { get; set; }
+        public long EmployeeIdentifier { get; set; }
         public string AccountName { get; set; }
         public bool IsActive { get; set; }
 

@@ -10,10 +10,7 @@ namespace IAM.Infrastructure.Data.EntityConfigurations
         {
             builder.Property(p => p.FirstName).HasMaxLength(50);
             builder.Property(p => p.LastName).HasMaxLength(50);
-            builder.Property(p => p.FatherName).HasMaxLength(50);
-            builder.Property(p => p.INN).HasMaxLength(15);
-
-            builder.Ignore(p => p.FullName);
+            builder.Property(p => p.DisplayName).HasMaxLength(150);
         }
     }
 }
