@@ -10,8 +10,7 @@ namespace IAM.Core.Models
         public virtual Role Role { get; set; }
         public long? EntRoleId { get; set; }
         public virtual EntRole EntRole { get; set; }
+        public string Initiator { get; set; }
         public RoleStatus Status { get; set; }
-        public DateTime DateStart { get; set; } = DateTime.UtcNow;
-        public DateTime? DateEnd { get; set; }
     }
 }

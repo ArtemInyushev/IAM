@@ -22,11 +22,6 @@ namespace IAM.Infrastructure.Data.EntityConfigurations
                 .HasForeignKey(i => i.StaffingId)
                 .OnDelete(DeleteBehavior.NoAction);
 
-            builder.HasMany(p => p.EmployeeHasDeltaRoles)
-                .WithOne(p => p.Employee)
-                .HasForeignKey(i => i.RoleId)
-                .OnDelete(DeleteBehavior.NoAction);
-
             builder.HasMany(p => p.EmployeeHasEntRoles)
                 .WithOne(p => p.Employee)
                 .HasForeignKey(i => i.EntRoleId)

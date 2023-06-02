@@ -7,7 +7,6 @@
         public long StaffingId { get; set; }
         public virtual Staffing Staffing { get; set; }
         public virtual ICollection<EmployeeHasRole> EmployeeHasRoles { get; set; }
-        public virtual ICollection<EmployeeHasDeltaRole> EmployeeHasDeltaRoles { get; set; }
         public virtual ICollection<EmployeeHasEntRole> EmployeeHasEntRoles { get; set; }
         public long EmployeeIdentifier { get; set; }
         public string AccountName { get; set; }
@@ -16,7 +15,6 @@
         public Employee()
         {
             EmployeeHasRoles = new HashSet<EmployeeHasRole>();
-            EmployeeHasDeltaRoles = new HashSet<EmployeeHasDeltaRole>();
             EmployeeHasEntRoles = new HashSet<EmployeeHasEntRole>();
         }
     }

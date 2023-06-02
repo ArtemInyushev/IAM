@@ -3,7 +3,7 @@
     public enum RoleStatus
     {
         Active = 1,
-        ToCreated = 2,
+        ToCreate = 2,
         ToDelete = 3,
         Deleted = 4,
     }

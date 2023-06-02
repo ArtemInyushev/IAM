@@ -17,7 +17,6 @@ namespace IAM.Infrastructure.Data
 
         public virtual DbSet<Department> Departments { get; set; }
         public virtual DbSet<Employee> Employees { get; set; }
-        public virtual DbSet<EmployeeHasDeltaRole> EmployeeHasDeltaRoles { get; set; }
         public virtual DbSet<EmployeeHasEntRole> EmployeeHasEntRoles { get; set; }
         public virtual DbSet<EmployeeHasRole> EmployeeHasRoles { get; set; }
         public virtual DbSet<EntRole> EntRoles { get; set; }
@@ -39,7 +38,6 @@ namespace IAM.Infrastructure.Data
 
             modelBuilder.ApplyConfiguration(new DepartmentConfiguration());
             modelBuilder.ApplyConfiguration(new EmployeeConfiguration());
-            modelBuilder.ApplyConfiguration(new EmployeeHasDeltaRoleConfiguration());
             modelBuilder.ApplyConfiguration(new EmployeeHasEntRoleConfiguration());
             modelBuilder.ApplyConfiguration(new EmployeeHasRoleConfiguration());
             modelBuilder.ApplyConfiguration(new EntRoleConfiguration());
