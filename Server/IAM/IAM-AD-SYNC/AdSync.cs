@@ -8,26 +8,23 @@ namespace IAM_AD_SYNC
 {
     public class AdSync
     {
-        private readonly ILogger<AdSync> _logger;
         private readonly IAdSyncService _adSyncService;
+        private readonly ILogger<AdSyncTimer> _logger;
 
         public AdSync(IAdSyncService adSyncService, ILoggerFactory loggerFactory)
         {
             _adSyncService = adSyncService;
-            _logger = loggerFactory.CreateLogger<AdSync>();
+            _logger = loggerFactory.CreateLogger<AdSyncTimer>();
         }
 
         [Function("AdSync")]
-        public HttpResponseData Run([HttpTrigger(AuthorizationLevel.Function, "get", "post")] HttpRequestData req)
+        public async Task<HttpResponseData> Run([HttpTrigger(AuthorizationLevel.Function, "get", "post")] HttpRequestData req)
         {
             _logger.LogInformation("C# HTTP trigger function processed a request.");
 
-            var response = req.CreateResponse(HttpStatusCode.OK);
-            response.Headers.Add("Content-Type", "text/plain; charset=utf-8");
+            await _adSyncService.SyncEmployeesAndGroups();
 
-            response.WriteString("Welcome to Azure Functions!");
-
-            return response;
+            return req.CreateResponse(HttpStatusCode.OK);
         }
     }
 }

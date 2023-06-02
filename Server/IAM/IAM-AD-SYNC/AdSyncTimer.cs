@@ -9,8 +9,8 @@ namespace IAM_AD_SYNC
 {
     public class AdSyncTimer
     {
-        private readonly ILogger<AdSyncTimer> _logger;
         private readonly IAdSyncService _adSyncService;
+        private readonly ILogger<AdSyncTimer> _logger;
 
         public AdSyncTimer(IAdSyncService adSyncService, ILoggerFactory loggerFactory)
         {
@@ -19,7 +19,7 @@ namespace IAM_AD_SYNC
         }
 
         [Function("AdSyncTimer")]
-        public async Task Run([TimerTrigger("0 */1 * * * *")] MyInfo myTimer)
+        public async Task Run([TimerTrigger("0 */30 * * * *")] MyInfo myTimer)
         {
             _logger.LogInformation($"C# Timer trigger function executed at: {DateTime.Now}");
 
