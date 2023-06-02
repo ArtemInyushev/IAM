@@ -8,7 +8,7 @@ namespace IAM.Infrastructure.Data.EntityConfigurations
     {
         public void Configure(EntityTypeBuilder<EmployeeHasRole> builder)
         {
-            builder.HasKey(p => new { p.RoleId, p.EmployeeId });
+            builder.HasKey(p => new { p.RoleId, p.EmployeeId, p.Status });
 
             builder.HasOne(p => p.Employee)
                 .WithMany(p => p.EmployeeHasRoles)

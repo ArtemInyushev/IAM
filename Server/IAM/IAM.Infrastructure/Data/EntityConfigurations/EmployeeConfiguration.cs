@@ -10,7 +10,7 @@ namespace IAM.Infrastructure.Data.EntityConfigurations
         {
             builder.Property(p => p.AccountName).HasMaxLength(100);
 
-            builder.HasIndex(p => p.EmployeeIdentifier);
+            builder.HasIndex(p => p.EmployeeIdentifier).IsUnique();
 
             builder.HasOne(p => p.Personal)
                 .WithMany()
