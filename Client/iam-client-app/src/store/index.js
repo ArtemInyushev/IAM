@@ -14,6 +14,7 @@ const store = createStore({
             },
             userData: {
                 account: '',
+                name: '',
                 roles: [],
                 accessToken: '',
             }
@@ -27,6 +28,7 @@ const store = createStore({
     actions: {
         updateUserData({ commit }, payload){
             if (!payload.account ||
+                !payload.name ||
                 //!payload.roles ||
                 !payload.accessToken) {
 

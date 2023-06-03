@@ -1,21 +1,11 @@
 <template>
 	<img alt="Vue logo" src="./assets/logo.png">
-	<HelloWorld msg="Welcome to Your Vue.js App" />
+	<router-view />
 </template>
 
 <script>
-import { msalInstance } from './auth/msalInstance'
-import HelloWorld from './components/HelloWorld.vue'
-import Auth from './auth';
-
 export default {
     name: 'App',
-    components: {
-        HelloWorld
-    },
-    mounted() {
-        Auth.getToken();
-    },
 }
 </script>
 

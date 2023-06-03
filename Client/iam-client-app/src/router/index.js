@@ -2,7 +2,13 @@ import { createWebHistory, createRouter } from "vue-router";
 import Auth from "../auth/index";
 
 const routes = [
-
+    {
+        path: '/',
+        name: 'Home',
+        component: () => import('../components/DepartmentsTree'),
+        props: true,
+        meta: {requiresAuth: true }
+    }
 ];
 
 const router = createRouter({
@@ -11,20 +17,21 @@ const router = createRouter({
 });
 
 router.beforeEach(async (to, from, next) => {
-    
     if (to.meta.requiresAuth) {
         try {
             await Auth.acquireTokenSilent();
             next();
         }
         catch (err) {
-            console.log(err)
+            console.log(err);
+            await Auth.getToken();
             /*next({
                 name: 'SignIn',
                 query: {
                     nextUrl: to.fullPath,
                 }
             });*/
+            next();
         }
     }
     else{

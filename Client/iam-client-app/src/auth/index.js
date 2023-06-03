@@ -5,17 +5,16 @@ import store from "../store/index";
 class Auth {
     static async acquireTokenSilent(){
         const account = msalInstance.getAllAccounts()[0];
-        console.log(account);
         const accessTokenRequest = {
             scopes: [`${process.env.VUE_APP_CLIENT_ID}/.default`],
             account: account
         };
 
         const accessTokenResponse = await msalInstance.acquireTokenSilent(accessTokenRequest);
-        console.log(accessTokenResponse)
         if (accessTokenResponse) {
             store.dispatch('updateUserData', {
                 account: accessTokenResponse.account.username,
+                name: accessTokenResponse.account.name,
                 roles: accessTokenResponse.account.idTokenClaims.roles,
                 accessToken: accessTokenResponse.accessToken
             });
@@ -53,6 +52,7 @@ class Auth {
         if (response) {
             store.dispatch('updateUserData', {
                 account: response.account.username,
+                name: response.account.name,
                 roles: response.account.idTokenClaims.roles,
                 accessToken: response.accessToken
             });
