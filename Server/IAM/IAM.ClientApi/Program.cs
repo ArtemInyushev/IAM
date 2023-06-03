@@ -4,10 +4,13 @@ using IAM.Core.Interfaces;
 using IAM.Infrastructure.Data;
 using IAM.Infrastructure.Repositories;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Identity.Web;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+
+builder.Services.AddMicrosoftIdentityWebApiAuthentication(builder.Configuration);
 
 builder.Services.AddDbContext<IamDbContext>(options =>
 {
@@ -44,6 +47,7 @@ app.UseMiddleware<ErrorHandlingMiddleware>();
 
 app.UseHttpsRedirection();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();

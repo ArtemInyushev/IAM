@@ -11,7 +11,8 @@ namespace IAM.ClientApi.Controllers
         private readonly IRepository<Department> _departmentsRepository;
         private readonly IMapper _mapper;
 
-        public DepartmentsController(IRepository<Department> departmentsRepository,
+        public DepartmentsController(
+            IRepository<Department> departmentsRepository,
             IMapper mapper,
             ILogger<DepartmentsController> logger) : base(logger)
         {
