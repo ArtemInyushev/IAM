@@ -5,7 +5,7 @@ const routes = [
     {
         path: '/',
         name: 'Home',
-        component: () => import('../components/DepartmentsTree'),
+        component: () => import('../components/MainComponent'),
         props: true,
         meta: {requiresAuth: true }
     }

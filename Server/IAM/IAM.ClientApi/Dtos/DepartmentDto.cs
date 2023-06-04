@@ -22,6 +22,7 @@ namespace IAM.ClientApi.Dtos
 
     internal class DepartmentDto
     {
+        public long Id { get; set; }
         public int DepartmentCode { get; set; }
         public string FullName { get; set; }
         public List<DepartmentDto> ChildDepartments { get; }

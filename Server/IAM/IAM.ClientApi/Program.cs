@@ -22,6 +22,8 @@ builder.Services.AddScoped<IDataSeeder, DataSeeder>();
 
 builder.Services.AddAutoMapper(typeof(MappingProfile));
 
+builder.Services.AddCors();
+
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -42,6 +44,13 @@ using (var scope = app.Services.CreateScope())
     var dataSeeder = scope.ServiceProvider.GetRequiredService<IDataSeeder>();
     await dataSeeder.SeedData();
 }
+
+app.UseCors(builder =>
+{
+    builder.AllowAnyHeader();
+    builder.AllowAnyMethod();
+    builder.AllowAnyOrigin();
+});
 
 app.UseMiddleware<ErrorHandlingMiddleware>();
 
