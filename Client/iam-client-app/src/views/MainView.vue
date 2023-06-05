@@ -2,7 +2,7 @@
 	<div class="main-component">
 		<div :style="componentWidth" class="left-panel">
 			<div v-show="!treeHidden" class="tree-container">
-				<departments-tree />
+				<departments-tree :selected-department-id="departmentIdNumber" />
 			</div>
 
 			<div class="toggle-button-container">
@@ -27,6 +27,12 @@ export default {
 	components: {
 		DepartmentsTree,
 	},
+    props: {
+        departmentId: {
+            type: String,
+            default: '',
+        },
+    },
 	data() {
 		return {
 			treeHidden: false,
@@ -38,7 +44,14 @@ export default {
 			return {
 				width: width
 			};
-		}
+		},
+        departmentIdNumber() {
+            const id = parseInt(this.departmentId, 10);
+            if (Number.isNaN(id)) {
+                return 0;
+            }
+            return id;
+        }
 	}
 }
 </script>
@@ -63,13 +76,15 @@ export default {
 
 .tree-container {
 	flex: auto;
+    overflow: hidden;
 }
 
 .toggle-button-container{
+    flex: 0;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	padding: 0.5rem;
-	color: var(--grey);
+	color: var(--light-blue);
 }
 </style>

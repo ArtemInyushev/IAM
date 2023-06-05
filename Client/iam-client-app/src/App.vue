@@ -10,7 +10,11 @@ export default {
 
 <style>
 :root {
+	--border-radius: 4px;
 	--grey: #818A8F;
+	--light-blue: #CCDDFF;
+	--light-green: #90EE90;
+	--dark-green: #006400;
 }
 
 html, body {
@@ -29,5 +33,11 @@ div#app {
 	font-weight: 500;
 	font-size: 14px;
 	line-height: 18px;
+}
+
+.ellipsis-overflow {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
 }
 </style>

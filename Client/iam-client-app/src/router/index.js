@@ -8,7 +8,14 @@ const routes = [
         component: () => import('../views/MainView'),
         props: true,
         meta: {requiresAuth: true }
-    }
+    },
+    {
+        path: '/Departments/:departmentId(\\d+)',
+        name: 'Departments',
+        component: () => import('../views/MainView'),
+        props: true,
+        meta: {requiresAuth: true }
+    },
 ];
 
 const router = createRouter({
