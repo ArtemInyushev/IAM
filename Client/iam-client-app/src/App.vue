@@ -9,6 +9,10 @@ export default {
 </script>
 
 <style>
+:root {
+	--grey: #818A8F;
+}
+
 html, body {
 	height: 100%;
 }
@@ -21,5 +25,9 @@ body {
 div#app {
 	height: 100%;
 	width: 100%;
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 500;
+	font-size: 14px;
+	line-height: 18px;
 }
 </style>

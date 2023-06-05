@@ -6,9 +6,13 @@
 			</div>
 
 			<div class="toggle-button-container">
-				<button @click="treeHidden = !treeHidden">
-					Hide
-				</button>
+				<i 
+					style="font-size: 2rem;"
+					class="bi" 
+					:class="{ 'bi-arrow-right-circle': treeHidden, 'bi-arrow-left-circle': !treeHidden }" 
+					@click="treeHidden = !treeHidden"
+				>
+				</i>
 			</div>
 		</div>
 		<div class="right-panel"></div>
@@ -16,10 +20,10 @@
 </template>
 
 <script>
-import DepartmentsTree from './DepartmentsTree.vue';
+import DepartmentsTree from '../components/DepartmentsTree.vue';
 
 export default {
-	name: 'MainComponent',
+	name: 'MainView',
 	components: {
 		DepartmentsTree,
 	},
@@ -65,5 +69,7 @@ export default {
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	padding: 0.5rem;
+	color: var(--grey);
 }
 </style>

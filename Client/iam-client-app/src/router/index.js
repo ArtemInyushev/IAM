@@ -5,7 +5,7 @@ const routes = [
     {
         path: '/',
         name: 'Home',
-        component: () => import('../components/MainComponent'),
+        component: () => import('../views/MainView'),
         props: true,
         meta: {requiresAuth: true }
     }

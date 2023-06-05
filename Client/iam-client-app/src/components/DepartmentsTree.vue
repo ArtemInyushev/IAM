@@ -1,9 +1,12 @@
 <template>
-	<department-tree-node
-		v-for="department in departments"
-		:key="department.id"
-		:department="department"
-	/>
+	<div class="departments-tree">
+		<span>{{ $t("structureCaption") }}</span>
+		<department-tree-node
+			v-for="department in departments"
+			:key="department.id"
+			:department="department"
+		/>
+	</div>
 </template>
 
 <script>
@@ -35,3 +38,11 @@ export default {
     }
 }
 </script>
+
+<style scoped>
+.departments-tree {
+	display: flex;
+	flex-flow: column;
+	color: var(--grey);
+}
+</style>
