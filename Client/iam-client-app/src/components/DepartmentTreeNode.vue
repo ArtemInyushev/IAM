@@ -92,7 +92,7 @@ export default {
 			if (this.isSelected) return;
 
 			this.$router.push({
-				name: 'Departments',
+				name: 'Roles',
 				params: {
 					departmentId: this.department.id
 				}

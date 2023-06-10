@@ -14,6 +14,24 @@ const routes = [
         name: 'Departments',
         component: () => import('../views/MainView'),
         props: true,
+        children: [
+            {
+                path: 'Roles',
+                name: 'Roles',
+                component: () => import('../views/RolesView'),
+                props: true,
+                children: [
+                    {
+                        path: 'CreateEntRole',
+                        name: 'CreateEntRole',
+                        component: () => import('../components/CreateEntRoleCard'),
+                        props: true,
+                        meta: {requiresAuth: true }
+                    },
+                ],
+                meta: {requiresAuth: true }
+            },
+        ],
         meta: {requiresAuth: true }
     },
 ];

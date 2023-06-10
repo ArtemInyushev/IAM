@@ -35,6 +35,31 @@ div#app {
 	line-height: 18px;
 }
 
+.table-area {
+    width: 100%;
+    display: flex;
+    flex-flow: column;
+    row-gap: 0.5rem;
+    padding: 1rem;
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+}
+
+.table-container {
+    overflow: auto;
+}
+
+table {
+    border: 2px solid var(--grey)
+}
+
+.headline {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 24px;
+    letter-spacing: 0.15px;
+}
+
 .ellipsis-overflow {
 	overflow: hidden;
 	text-overflow: ellipsis;

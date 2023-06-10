@@ -7,7 +7,7 @@
 
 			<div class="toggle-button-container">
 				<i 
-					style="font-size: 2rem;"
+					style="font-size: 2rem; cursor: pointer"
 					class="bi" 
 					:class="{ 'bi-arrow-right-circle': treeHidden, 'bi-arrow-left-circle': !treeHidden }" 
 					@click="treeHidden = !treeHidden"
@@ -15,17 +15,23 @@
 				</i>
 			</div>
 		</div>
-		<div class="right-panel"></div>
+		<div class="right-panel">
+			<iam-header />
+
+			<router-view />
+		</div>
 	</div>
 </template>
 
 <script>
 import DepartmentsTree from '../components/DepartmentsTree.vue';
+import IamHeader from '@/components/IamHeader.vue';
 
 export default {
 	name: 'MainView',
 	components: {
 		DepartmentsTree,
+        IamHeader
 	},
     props: {
         departmentId: {
@@ -72,6 +78,8 @@ export default {
 
 .right-panel {
 	flex: auto;
+    display: flex;
+    flex-flow: column;
 }
 
 .tree-container {
