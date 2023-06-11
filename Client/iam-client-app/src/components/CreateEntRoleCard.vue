@@ -63,7 +63,7 @@
 		</div>
 
 		<template v-if="roleTypes.length > 0">
-			<roles-list :role-types="roleTypes" :roles="roles" />
+			<roles-list :role-types="roleTypes" />
 		</template>
 	</div>
 </template>
@@ -79,18 +79,6 @@ export default {
 	data() {
 		return {
 			roleTypes: [],
-			roles: [
-				{
-					name: 'grp-IAM-test-RO',
-					description: 'grp-IAM-test-RO',
-					type: 1,
-				},
-				{
-					name: 'grp-IAM-test-RW',
-					description: 'Some description for test group with ReadWrite access',
-					type: 1,
-				},
-			]
 		};
 	},
 	async created() {
