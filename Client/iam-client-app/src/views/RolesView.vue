@@ -23,10 +23,10 @@
 						<thead>
 							<tr>
 								<th scope="col">
-									First
+									{{ $t("roleCodeCaption") }}
 								</th>
 								<th scope="col">
-									Last
+									{{ $t("descriptionCaption") }}
 								</th>
 							</tr>
 						</thead>
@@ -144,6 +144,7 @@ export default {
 	flex-flow: row;
 	column-gap: 1rem;
 	padding: 1rem;
+	overflow: auto;
 }
 
 .roles-content {

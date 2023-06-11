@@ -1,6 +1,6 @@
 <template>
 	<div class="payroll-card">
-		<div class="table-area" style="height: 50%">
+		<div class="table-area" style="max-height: calc(50% - 0.5rem)">
 			<div>
 				<span class="headline ellipsis-overflow">
 					{{ $t("payrollCaption") }}
@@ -14,7 +14,7 @@
 
 				<div class="staffing-checkbox-area">
 					<input class="form-check-input" type="checkbox">
-					<label class="form-check-label">{{ $t("createBaseOnExistingCaption") }}</label>
+					<label class="form-check-label">{{ $t("includeEmployeesFromchildDepartmentsCaption") }}</label>
 				</div>
 			</div>
 
@@ -23,25 +23,33 @@
 					<thead>
 						<tr>
 							<th scope="col">
-								First
+								{{ $t("employeeIdentifierCaption") }}
 							</th>
 							<th scope="col">
-								Last
+								{{ $t("employeeDisplayNameCaption") }}
+							</th>
+							<th scope="col">
+								{{ $t("accountCaption") }}
+							</th>
+							<th scope="col">
+								{{ $t("employeeProfessionCaption") }}
+							</th>
+							<th scope="col">
+								{{ $t("departmentCaption") }}
+							</th>
+							<th scope="col">
+								{{ $t("staffingCodeCaption") }}
 							</th>
 						</tr>
 					</thead>
 					<tbody>
-						<tr>
-							<td>Mark</td>
-							<td>Otto</td>
-						</tr>
-						<tr>
-							<td>Jacob</td>
-							<td>Thornton</td>
-						</tr>
-						<tr>
-							<td>Larry</td>
-							<td>the Bird</td>
+						<tr v-for="employee in employees" :key="employee.id">
+							<td>{{ employee.employeeIdentifier }}</td>
+							<td>{{ employee.personalDisplayName }}</td>
+							<td>{{ employee.accountName }}</td>
+							<td>{{ employee.staffingProfessionName }}</td>
+							<td>{{ employee.staffingDepartmentFullName }}</td>
+							<td>{{ employee.staffingStaffingCode }}</td>
 						</tr>
 					</tbody>
 				</table>
@@ -55,6 +63,35 @@
 <script>
 export default {
     name: 'PayrollCard',
+	props: {
+		departmentId: {
+			type: String,
+			required: true,
+		},
+	},
+	data() {
+		return {
+			employees: [],
+		};
+	},
+	async created() {
+		await this.loadEmployees();
+	},
+	methods: {
+		async loadEmployees() {
+			try{
+				const response = await this.axios.get('employees/departmentId', {
+					params: {
+						departmentId: this.departmentId
+					}
+				});
+				this.employees = response.data;
+			}
+			catch (err) {
+                console.log(err);
+            }
+		},
+	}
 }
 </script>
 
@@ -65,6 +102,7 @@ export default {
 	flex-flow: column;
 	row-gap: 1rem;
 	padding: 1rem;
+    overflow: auto;
 }
 
 .payroll-table-buttons {

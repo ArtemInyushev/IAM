@@ -22,25 +22,21 @@
 					<thead>
 						<tr>
 							<th scope="col">
-								First
+								{{ $t("staffingCodeCaption") }}
 							</th>
 							<th scope="col">
-								Last
+								{{ $t("professionNameCaption") }}
+							</th>
+							<th scope="col">
+								{{ $t("roleCodeCaption") }}
 							</th>
 						</tr>
 					</thead>
 					<tbody>
-						<tr>
-							<td>Mark</td>
-							<td>Otto</td>
-						</tr>
-						<tr>
-							<td>Jacob</td>
-							<td>Thornton</td>
-						</tr>
-						<tr>
-							<td>Larry</td>
-							<td>the Bird</td>
+						<tr v-for="staffing in staffings" :key="staffing.id">
+							<td>{{ staffing.staffingCode }}</td>
+							<td>{{ staffing.professionName }}</td>
+							<td>{{ staffing.EntRoleCode }}</td>
 						</tr>
 					</tbody>
 				</table>
@@ -52,6 +48,35 @@
 <script>
 export default {
     name: 'StaffingCard',
+	props: {
+		departmentId: {
+			type: String,
+			required: true,
+		},
+	},
+	data() {
+		return {
+			staffings: [],
+		};
+	},
+	async created() {
+		await this.loadStaffings();
+	},
+	methods: {
+		async loadStaffings() {
+			try{
+				const response = await this.axios.get('staffings/departmentId', {
+					params: {
+						departmentId: this.departmentId
+					}
+				});
+				this.staffings = response.data;
+			}
+			catch (err) {
+                console.log(err);
+            }
+		},
+	}
 }
 </script>
 
@@ -59,5 +84,6 @@ export default {
 .staffing-card {
 	flex: auto;
 	padding: 1rem;
+    overflow: auto;
 }
 </style>

@@ -24,7 +24,7 @@ namespace IAM.ClientApi.Controllers
         [HttpGet("DepartmentId")]
         public async Task<IActionResult> GetByDepartmentId(long departmentId)
         {
-            var entRoles = (await _entRolesRepository.ListAsync(new EntRoleByDepartmentIdSpec(departmentId)))
+            var entRoles = (await _entRolesRepository.ListAsync(new EntRolesByDepartmentIdSpec(departmentId)))
                 .Select(e => _mapper.Map<EntRoleDto>(e));
             return Ok(entRoles);
         }

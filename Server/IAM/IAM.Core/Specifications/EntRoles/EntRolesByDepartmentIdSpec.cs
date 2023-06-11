@@ -3,9 +3,9 @@ using IAM.Core.Models;
 
 namespace IAM.Core.Specifications.EntRoles
 {
-    public class EntRoleByDepartmentIdSpec : Specification<EntRole>
+    public class EntRolesByDepartmentIdSpec : Specification<EntRole>
     {
-        public EntRoleByDepartmentIdSpec(long departmentId)
+        public EntRolesByDepartmentIdSpec(long departmentId)
         {
             Query.Include(e => e.Department)
                  .Include(e => e.Staffing)

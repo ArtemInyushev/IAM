@@ -61,6 +61,10 @@ table{
     border: 2px solid var(--grey-secondary);
 }
 
+.table {
+    margin: 0;
+}
+
 .headline {
     font-size: 20px;
     font-weight: 700;

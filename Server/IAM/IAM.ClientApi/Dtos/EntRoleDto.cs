@@ -2,8 +2,9 @@
 
 namespace IAM.ClientApi.Dtos
 {
-    public class EntRoleDto
+    internal class EntRoleDto
     {
+        public long Id { get; set; }
         public long DepartmentId { get; set; }
         public virtual Department Department { get; set; }
         public long StaffingId { get; set; }

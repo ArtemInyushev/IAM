@@ -1,5 +1,5 @@
 <template>
-	<div class="table-area" style="height: 50%">
+	<div class="table-area" style="max-height: calc(50% - 0.5rem)">
 		<ul class="nav nav-bars">
 			<li class="nav-item">
 				<router-link :to="{name: 'AllEntRoles'}" class="nav-link iam-nav-link">
