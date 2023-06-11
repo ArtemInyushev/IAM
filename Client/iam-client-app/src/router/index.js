@@ -28,6 +28,57 @@ const routes = [
                         props: true,
                         meta: {requiresAuth: true }
                     },
+                    {
+                        path: 'EntRole/:entRoleId(\\d+)',
+                        name: 'EntRole',
+                        component: () => import('../components/CreateEntRoleCard'),
+                        props: true,
+                        meta: {requiresAuth: true }
+                    },
+                ],
+                meta: {requiresAuth: true }
+            },
+            {
+                path: 'Staffing',
+                name: 'Staffing',
+                component: () => import('../components/StaffingCard'),
+                props: true,
+                meta: {requiresAuth: true }
+            },
+            {
+                path: 'Payroll/:personalId(\\d+)?',
+                name: 'Payroll',
+                component: () => import('../components/PayrollCard'),
+                props: true,
+                children: [
+                    {
+                        path: 'AllEntRoles',
+                        name: 'AllEntRoles',
+                        component: () => import('../components/PayrollRolesCard'),
+                        props: true,
+                        meta: {requiresAuth: true }
+                    },
+                    {
+                        path: 'StaffingEntRoles',
+                        name: 'StaffingEntRoles',
+                        component: () => import('../components/PayrollRolesCard'),
+                        props: true,
+                        meta: {requiresAuth: true }
+                    },
+                    {
+                        path: 'EntRolesNoBase',
+                        name: 'EntRolesNoBase',
+                        component: () => import('../components/PayrollRolesCard'),
+                        props: true,
+                        meta: {requiresAuth: true }
+                    },
+                    {
+                        path: 'AllRoles',
+                        name: 'AllRoles',
+                        component: () => import('../components/PayrollRolesCard'),
+                        props: true,
+                        meta: {requiresAuth: true }
+                    },
                 ],
                 meta: {requiresAuth: true }
             },
@@ -39,6 +90,7 @@ const routes = [
 const router = createRouter({
     history: createWebHistory(),
     routes,
+    linkActiveClass: 'iam-nav-link-active'
 });
 
 router.beforeEach(async (to, from, next) => {

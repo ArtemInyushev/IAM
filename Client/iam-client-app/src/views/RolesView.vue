@@ -1,15 +1,19 @@
 <template>
 	<div class="roles-view">
 		<div class="roles-content" style="width: 40%">
-			<div class="table-area" style="height: 50%;">
+			<div class="table-area" style="height: 50%">
 				<div>
 					<span class="headline ellipsis-overflow">
 						{{ $t("departmentsRolesCaption") }}
 					</span>
 				</div>
 
-				<div>
-					<button type="button" class="btn btn-outline-success" @click="onCreateEntRole">
+				<div class="table-buttons">
+					<button type="button" class="btn btn-sm btn-outline-success">
+						<i class="bi bi-arrow-repeat"></i>
+					</button>
+
+					<button type="button" class="btn btn-sm btn-outline-success" @click="onCreateEntRole">
 						<i class="bi bi-plus-lg"></i>
 					</button>
 				</div>
@@ -44,7 +48,57 @@
 				</div>
 			</div>
 
-			<div class="table-area" style="height: 50%;"></div>
+			<div class="table-area" style="height: 50%">
+				<div>
+					<span class="headline ellipsis-overflow">
+						{{ $t("assignedRolesCaption") }}
+					</span>
+				</div>
+
+				<div class="table-buttons">
+					<button type="button" class="btn btn-sm btn-outline-success">
+						<i class="bi bi-plus-lg"></i>
+					</button>
+
+					<button 
+						type="button" 
+						class="btn btn-sm btn-outline-success filter-button" 
+						@click="withoutFeatureFilter = !withoutFeatureFilter"
+					>
+						<i class="bi" :class="{'bi-funnel' : !withoutFeatureFilter , 'bi-funnel-fill' : withoutFeatureFilter}"></i>
+						<span>{{ $t("withoutFeatureCaption") }}</span>
+					</button>
+				</div>
+
+				<div class="table-container">
+					<table class="table table-bordered table-hover">
+						<thead>
+							<tr>
+								<th scope="col">
+									First
+								</th>
+								<th scope="col">
+									Last
+								</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>Mark</td>
+								<td>Otto</td>
+							</tr>
+							<tr>
+								<td>Jacob</td>
+								<td>Thornton</td>
+							</tr>
+							<tr>
+								<td>Larry</td>
+								<td>the Bird</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
 		</div>
 
 		<router-view />
@@ -60,6 +114,11 @@ export default {
             default: '',
         },
     },
+	data() {
+		return {
+			withoutFeatureFilter: false,
+		};
+	},
 	watch: {
 		departmentId() {
 			console.log(this.departmentId);
@@ -91,5 +150,11 @@ export default {
 	display: flex;
 	flex-flow: column;
 	row-gap: 1rem;
+}
+
+.filter-button {
+	display: flex;
+	flex-flow: row;
+	column-gap: 0.5rem;
 }
 </style>

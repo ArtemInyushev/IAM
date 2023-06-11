@@ -12,9 +12,11 @@ export default {
 :root {
 	--border-radius: 4px;
 	--grey: #818A8F;
+    --grey-secondary: #D0D0D0;
 	--light-blue: #CCDDFF;
 	--light-green: #90EE90;
 	--dark-green: #006400;
+    --red: #ED1C24;
 }
 
 html, body {
@@ -45,12 +47,18 @@ div#app {
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
 }
 
+.table-buttons {
+	display: flex;
+	flex-flow: row;
+	column-gap: 0.5rem;
+}
+
 .table-container {
     overflow: auto;
 }
 
-table {
-    border: 2px solid var(--grey)
+table{
+    border: 2px solid var(--grey-secondary);
 }
 
 .headline {
