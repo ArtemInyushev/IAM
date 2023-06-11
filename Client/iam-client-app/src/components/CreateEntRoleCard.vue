@@ -61,12 +61,30 @@
 				</div>
 			</div>
 		</div>
+
+		<template v-if="roleTypes.length > 0">
+			<roles-list :role-types="roleTypes" />
+		</template>
 	</div>
 </template>
 
 <script>
+import RolesList from './RolesList.vue';
+
 export default {
     name: 'CreateEntRoleCard',
+	components: {
+		RolesList,
+	},
+	data() {
+		return {
+			roleTypes: [],
+		};
+	},
+	async created() {
+		const roleTypesResponse = await this.axios.get("roles/types");
+		this.roleTypes = roleTypesResponse.data;
+	},
 }
 </script>
 
@@ -155,7 +173,7 @@ input[type="checkbox"] {
 }
 
 input:checked {
-	background-color: var(--red);
+	background-color: var(--dark-green);
 }
 
 input:focus {
