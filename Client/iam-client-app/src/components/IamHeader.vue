@@ -1,6 +1,6 @@
 <template>
 	<div class="iam-header">
-		<ul class="nav nav-bars">
+		<ul v-if="isDepartmentsRoute" class="nav nav-bars">
 			<li class="nav-item">
 				<router-link :to="{name: 'Roles'}" class="nav-link iam-nav-link">
 					{{ $t("rolesCaption") }}
@@ -29,13 +29,27 @@
 <script>
 export default {
     name: 'IamHeader',
+    computed: {
+        isDepartmentsRoute() {
+            return this.$route.matched.some(({ name }) => name === 'Departments');
+        },
+        headerJustifyContent() {
+            if (this.isDepartmentsRoute) {
+                return 'space-between';
+            }
+            else {
+                return 'flex-end';
+            }
+            
+        },
+    }
 }
 </script>
 
 <style scoped>
 .iam-header {
 	display: flex;
-	justify-content: space-between;
+	justify-content: v-bind(headerJustifyContent);
 	align-items: flex-end;
 	padding: 0.5rem 1rem 0;
 	background-color: #F3F6FA;
