@@ -291,7 +291,6 @@ export default {
 
 .form-select-text-container {
 	width: 100%;
-	height: 100%;
 }
 
 .list-icon {
