@@ -29,9 +29,9 @@ const routes = [
                         meta: {requiresAuth: true }
                     },
                     {
-                        path: 'EntRole/:entRoleId(\\d+)',
-                        name: 'EntRole',
-                        component: () => import('../components/CreateEntRoleCard'),
+                        path: 'EntRoles/:entRoleId(\\d+)',
+                        name: 'EntRoles',
+                        component: () => import('../components/EntRoleCard'),
                         props: true,
                         meta: {requiresAuth: true }
                     },
@@ -39,8 +39,8 @@ const routes = [
                 meta: {requiresAuth: true }
             },
             {
-                path: 'Staffing',
-                name: 'Staffing',
+                path: 'Staffings',
+                name: 'Staffings',
                 component: () => import('../components/StaffingCard'),
                 props: true,
                 meta: {requiresAuth: true }

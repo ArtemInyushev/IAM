@@ -1,7 +1,7 @@
 <template>
 	<div class="roles-view">
 		<div class="roles-content" style="width: 40%">
-			<div class="table-area" style="height: 50%">
+			<div class="table-area" style="height: calc(50% - 0.5rem)">
 				<div>
 					<span class="headline ellipsis-overflow">
 						{{ $t("departmentsRolesCaption") }}
@@ -48,7 +48,7 @@
 				</div>
 			</div>
 
-			<div class="table-area" style="height: 50%">
+			<div class="table-area" style="height: calc(50% - 0.5rem)">
 				<div>
 					<span class="headline ellipsis-overflow">
 						{{ $t("assignedRolesCaption") }}
@@ -75,23 +75,47 @@
 						<thead>
 							<tr>
 								<th scope="col">
-									First
+									{{ $t("employeeIdentifierCaption") }}
 								</th>
 								<th scope="col">
-									Last
+									{{ $t("employeeDisplayNameCaption") }}
+								</th>
+								<th scope="col">
+									{{ $t("accountCaption") }}
+								</th>
+								<th scope="col">
+									{{ $t("employeeProfessionCaption") }}
+								</th>
+								<th scope="col">
+									{{ $t("departmentCaption") }}
+								</th>
+								<th scope="col">
+									{{ $t("staffingCodeCaption") }}
 								</th>
 							</tr>
 						</thead>
 						<tbody>
 							<tr>
+								<td>MarkMarkMark</td>
+								<td>Otto</td>
+								<td>Mark</td>
+								<td>Otto</td>
 								<td>Mark</td>
 								<td>Otto</td>
 							</tr>
 							<tr>
 								<td>Jacob</td>
 								<td>Thornton</td>
+								<td>Jacob</td>
+								<td>Thornton</td>
+								<td>Jacob</td>
+								<td>Thornton</td>
 							</tr>
 							<tr>
+								<td>Larry</td>
+								<td>the Bird</td>
+								<td>Larry</td>
+								<td>the Bird</td>
 								<td>Larry</td>
 								<td>the Bird</td>
 							</tr>

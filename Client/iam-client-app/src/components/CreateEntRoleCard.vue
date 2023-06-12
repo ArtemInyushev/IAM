@@ -5,8 +5,9 @@
 				{{ $t("roleCreationCaption") }}
 			</span>
 
-			<button type="button" class="btn btn-danger">
+			<button type="button" class="btn btn-sm btn-success create-button">
 				<i class="bi bi-save"></i>
+				<span>{{ $t("createCaption") }}</span>
 			</button>
 		</div>
 
@@ -22,7 +23,7 @@
 				</div>
 			</div>
 
-			<div class="form-select-item-container">
+			<div class="form-item form-select-item-container">
 				<span>{{ $t("staffingCaption") }}</span>
 				<div class="form-select-item">
 					<div class="form-select-text-container">
@@ -63,7 +64,7 @@
 		</div>
 
 		<template v-if="roleTypes.length > 0">
-			<roles-list :role-types="roleTypes" />
+			<roles-list style="padding-top: 1rem" :role-types="roleTypes" :roles="roles" />
 		</template>
 	</div>
 </template>
@@ -79,6 +80,18 @@ export default {
 	data() {
 		return {
 			roleTypes: [],
+			roles: [
+				{
+					name: 'grp-IAM-test-RO',
+					description: 'grp-IAM-test-RO',
+					type: 1,
+				},
+				{
+					name: 'grp-IAM-test-RW',
+					description: 'Some description for test group with ReadWrite access',
+					type: 1,
+				},
+			]
 		};
 	},
 	async created() {
@@ -104,6 +117,12 @@ export default {
 	display: flex;
 	flex-flow: row;
 	justify-content: space-between;
+}
+
+.create-button {
+	display: flex;
+	flex-flow: row;
+	column-gap: 0.5rem;
 }
 
 .form-row {

@@ -14,6 +14,7 @@ export default {
 	--grey: #818A8F;
     --grey-secondary: #D0D0D0;
 	--light-blue: #CCDDFF;
+    --green: #4CD964;
 	--light-green: #90EE90;
 	--dark-green: #006400;
     --red: #ED1C24;
@@ -76,5 +77,20 @@ table{
 	overflow: hidden;
 	text-overflow: ellipsis;
 	white-space: nowrap;
+}
+
+::-webkit-scrollbar{
+    width: 6px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: var(--grey-secondary);
+    border-radius: calc(var(--border-radius) / 2);
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--dark-green);
+    border-radius: calc(var(--border-radius) / 2);
 }
 </style>

@@ -7,7 +7,7 @@
 				</router-link>
 			</li>
 			<li class="nav-item">
-				<router-link :to="{name: 'Staffing'}" class="nav-link iam-nav-link">
+				<router-link :to="{name: 'Staffings'}" class="nav-link iam-nav-link">
 					{{ $t("staffingsCaption") }}
 				</router-link>
 			</li>
