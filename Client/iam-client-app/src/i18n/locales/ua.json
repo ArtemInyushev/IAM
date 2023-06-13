@@ -27,12 +27,15 @@
     "roleCodeCaption": "Код ролі",
     "roleCreationCaption": "Створення ролі",
     "roleCardCaption": "Картка ролі",
+    "roleNameCaption": "Назва ролі",
     "roleTypeCaption": "Тип ролі",
     "rolesCaption": "Ролі",
     "saveCaption": "Зберегти",
     "staffingCaption": "Штатна посада",
     "staffingCodeCaption": "Код ШП",
     "staffingsCaption": "Штатний розклад",
+    "statusCaption": "Статус",
     "structureCaption": "С т р у к т у р а",
+    "typeCaption": "Тип",
     "withoutFeatureCaption": "Без ознаки"
 }
