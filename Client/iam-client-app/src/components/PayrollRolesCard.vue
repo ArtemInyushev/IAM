@@ -28,26 +28,20 @@
 				<thead>
 					<tr>
 						<th scope="col">
-							First
+							{{ $t("roleNameCaption") }}
 						</th>
 						<th scope="col">
-							Last
+							{{ $t("descriptionCaption") }}
+						</th>
+						<th scope="col">
+							{{ $t("typeCaption") }}
+						</th>
+						<th scope="col">
+							{{ $t("statusCaption") }}
 						</th>
 					</tr>
 				</thead>
 				<tbody>
-					<tr>
-						<td>Mark</td>
-						<td>Otto</td>
-					</tr>
-					<tr>
-						<td>Jacob</td>
-						<td>Thornton</td>
-					</tr>
-					<tr>
-						<td>Larry</td>
-						<td>the Bird</td>
-					</tr>
 				</tbody>
 			</table>
 		</div>
