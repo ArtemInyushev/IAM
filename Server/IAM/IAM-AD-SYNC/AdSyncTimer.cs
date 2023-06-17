@@ -1,9 +1,6 @@
 using IAM.Application.Interfaces;
-using IAM.Infrastructure.Data;
 using Microsoft.Azure.Functions.Worker;
-using Microsoft.Azure.Functions.Worker.Http;
 using Microsoft.Extensions.Logging;
-using System.Net;
 
 namespace IAM_AD_SYNC
 {
