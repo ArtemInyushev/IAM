@@ -10,7 +10,7 @@ namespace IAM_AD_SYNC.Mapping
         {
             CreateMap<Group, Role>()
                 .ForMember(x => x.Id, s => s.Ignore())
-                .ForMember(x => x.ExternaId, s => s.MapFrom(x => Guid.Parse(x.Id)))
+                .ForMember(x => x.ExternalId, s => s.MapFrom(x => Guid.Parse(x.Id)))
                 .ForMember(x => x.Name, s => s.MapFrom(x => x.DisplayName));
 
             CreateMap<User, Personal>()

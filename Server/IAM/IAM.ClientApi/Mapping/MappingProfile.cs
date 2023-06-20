@@ -13,6 +13,7 @@ namespace IAM.ClientApi.Mapping
             CreateMap<EntRole, EntRoleDto>();
             CreateMap<Staffing, StaffingDto>();
             CreateMap<Employee, EmployeeDto>();
+            CreateMap<Role, RoleDto>();
 
             CreateMap<RoleType, RoleTypeDto>()
                 .ForMember(dest => dest.Id, opt => opt.MapFrom(src => (int)src))

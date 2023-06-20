@@ -21,7 +21,7 @@
 						</i>
 					</button>
 				</div>
-				<button class="modify-button">
+				<button class="modify-button" @click="onModifyClick(roleType.name)">
 					<i class="bi bi-pencil"></i>
 				</button>
 			</div>
@@ -36,12 +36,19 @@
 				</div>
 			</div>
 		</div>
+
+		<iam-search v-if="showSearchArea" :query="'Roles'" :caption="searchCaption" @close="onSearchClose" />
 	</div>
 </template>
 
 <script>
+import IamSearch from './IamSearch.vue';
+
 export default {
     name: 'RolesList',
+    components: {
+        IamSearch
+    },
 	props: {
 		roleTypes: {
 			type: Array,
@@ -58,6 +65,9 @@ export default {
 		return {
 			allRoles: {},
 			showRoles: {},
+
+			showSearchArea: false,
+			searchCaption: '',
 		};
 	},
 	created() {
@@ -70,6 +80,13 @@ export default {
 				this.allRoles[roleType.id] = roles;
 				this.showRoles[roleType.id] = false;
 			}
+		},
+		onModifyClick(name) {
+			this.searchCaption = name;
+			this.showSearchArea = true;
+		},
+		onSearchClose() {
+			this.showSearchArea = false;
 		}
 	}
 }

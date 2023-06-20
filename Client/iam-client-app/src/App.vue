@@ -13,6 +13,7 @@ export default {
 	--border-radius: 4px;
 	--grey: #818A8F;
     --grey-secondary: #D0D0D0;
+    --dark-grey: #37424A;
 	--light-blue: #CCDDFF;
     --green: #4CD964;
 	--light-green: #90EE90;
@@ -36,6 +37,17 @@ div#app {
 	font-weight: 500;
 	font-size: 14px;
 	line-height: 18px;
+}
+
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    opacity: 0.4;
+    background-color: black;
+    z-index: 5;
 }
 
 .table-area {
@@ -64,6 +76,14 @@ table{
 
 .table {
     margin: 0;
+}
+
+.close-button {
+    padding: 0;
+    font-size: 2rem;
+    color: var(--dark-green);
+    border: none;
+    background: none;
 }
 
 .headline {
