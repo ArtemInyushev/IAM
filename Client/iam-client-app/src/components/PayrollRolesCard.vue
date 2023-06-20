@@ -27,17 +27,8 @@
 			<table class="table table-bordered table-hover">
 				<thead>
 					<tr>
-						<th scope="col">
-							{{ $t("roleNameCaption") }}
-						</th>
-						<th scope="col">
-							{{ $t("descriptionCaption") }}
-						</th>
-						<th scope="col">
-							{{ $t("typeCaption") }}
-						</th>
-						<th scope="col">
-							{{ $t("statusCaption") }}
+						<th v-for="column in columns" :key="column" scope="col">
+							{{ column }}
 						</th>
 					</tr>
 				</thead>
@@ -51,6 +42,42 @@
 <script>
 export default {
     name: 'PayrollRolesCard',
+    data() {
+        return {
+            allColumns: {
+                entRoles: [
+                    this.$t("roleCodeCaption"),
+                    this.$t("roleTypeCaption"),
+                    this.$t("descriptionCaption"),
+                    this.$t("inheritChildCaption"),
+                ],
+                entRolesRoles: [
+                    this.$t("roleNameCaption"),
+                    this.$t("descriptionCaption"),
+                    this.$t("roleTypeCaption"),
+                    this.$t("entRoleCaption"),
+                ],
+                allRoles: [
+                    this.$t("roleNameCaption"),
+                    this.$t("descriptionCaption"),
+                    this.$t("typeCaption"),
+                    this.$t("statusCaption"),
+                ],
+            },
+        };
+    },
+    computed: {
+        columns() {
+            switch (this.$route.name){
+                case 'AllEntRoles':
+                    return this.allColumns.entRoles;
+                case 'AllRoles':
+                    return this.allColumns.allRoles;
+                default:
+                    return this.allColumns.entRolesRoles;
+            }
+        }
+    }
 }
 </script>
 
