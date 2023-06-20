@@ -7,7 +7,7 @@ namespace IAM.Core.Specifications.Roles
     {
         public RolesByEnternalIdSpec(Guid externalId)
         {
-            Query.Where(r => r.ExternaId == externalId);
+            Query.Where(r => r.ExternalId == externalId);
         }
     }
 }

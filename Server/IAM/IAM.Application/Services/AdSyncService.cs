@@ -137,11 +137,11 @@ namespace IAM.Application.Services
                     // Add missing groups for user
                     foreach (var groupdId in user.MemberOf.Select(m => Guid.Parse(m.Id)))
                     {
-                        var employeeHasRole = employee.EmployeeHasRoles.FirstOrDefault(e => e.Role.ExternaId == groupdId);
+                        var employeeHasRole = employee.EmployeeHasRoles.FirstOrDefault(e => e.Role.ExternalId == groupdId);
                         if (employeeHasRole is null) // Assign role to employee
                         {
-                            var role = roles.FirstOrDefault(r => r.ExternaId == groupdId) 
-                                ?? throw new ArgumentNullException("Any role with ExternaId={groupdId}", groupdId.ToString());
+                            var role = roles.FirstOrDefault(r => r.ExternalId == groupdId) 
+                                ?? throw new ArgumentNullException("Any role with ExternalId={groupdId}", groupdId.ToString());
 
                             employee.EmployeeHasRoles.Add(
                                 new EmployeeHasRole
@@ -172,7 +172,7 @@ namespace IAM.Application.Services
                     // Remove extra groups for user
                     foreach (var employeeHasRole in employee.EmployeeHasRoles)
                     {
-                        if (!user.MemberOf.Any(m => m.Id == employeeHasRole.Role.ExternaId.ToString()))
+                        if (!user.MemberOf.Any(m => m.Id == employeeHasRole.Role.ExternalId.ToString()))
                         {
                             switch (employeeHasRole.Status)
                             {
@@ -227,7 +227,7 @@ namespace IAM.Application.Services
             // Add missing groups
             foreach (var group in groups)
             {
-                if (!roles.Any(r => r.ExternaId.ToString() == group.Id))
+                if (!roles.Any(r => r.ExternalId.ToString() == group.Id))
                 {
                     var newRole = _mapper.Map<Role>(group);
                     newRole.Type = RoleType.AD;
@@ -238,7 +238,7 @@ namespace IAM.Application.Services
             // Remove extra groups
             foreach (var role in roles)
             {
-                if (!groups.Any(g => g.Id == role.ExternaId.ToString()))
+                if (!groups.Any(g => g.Id == role.ExternalId.ToString()))
                 {
                     await _rolesRepository.DeleteAsync(role);
                 }

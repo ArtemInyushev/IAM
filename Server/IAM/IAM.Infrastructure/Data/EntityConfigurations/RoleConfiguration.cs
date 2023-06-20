@@ -8,7 +8,7 @@ namespace IAM.Infrastructure.Data.EntityConfigurations
     {
         public void Configure(EntityTypeBuilder<Role> builder)
         {
-            builder.HasIndex(p => new { p.Name, p.Type, p.ExternaId });
+            builder.HasIndex(p => new { p.Name, p.Type, p.ExternalId });
 
             builder.Property(p => p.Name).HasMaxLength(100).IsRequired();
             builder.Property(p => p.Description).HasMaxLength(300);
