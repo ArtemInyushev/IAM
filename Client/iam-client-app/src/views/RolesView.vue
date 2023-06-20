@@ -95,30 +95,6 @@
 							</tr>
 						</thead>
 						<tbody>
-							<tr>
-								<td>MarkMarkMark</td>
-								<td>Otto</td>
-								<td>Mark</td>
-								<td>Otto</td>
-								<td>Mark</td>
-								<td>Otto</td>
-							</tr>
-							<tr>
-								<td>Jacob</td>
-								<td>Thornton</td>
-								<td>Jacob</td>
-								<td>Thornton</td>
-								<td>Jacob</td>
-								<td>Thornton</td>
-							</tr>
-							<tr>
-								<td>Larry</td>
-								<td>the Bird</td>
-								<td>Larry</td>
-								<td>the Bird</td>
-								<td>Larry</td>
-								<td>the Bird</td>
-							</tr>
 						</tbody>
 					</table>
 				</div>
